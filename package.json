@@ -1,0 +1,50 @@
+{
+  "name": "ts-rsc-with-prisma",
+  "version": "0.0.1",
+  "description": "## Setting Environment",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "webpack build --config ./webpack.config.js --mode development",
+    "server:dev": "",
+    "start": "concurrently -n server,client -c auto \"npm run server:dev\" \"npm run build:dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "react": "^0.0.0-experimental-0cc724c77-20211125",
+    "react-dom": "^0.0.0-experimental-0cc724c77-20211125",
+    "react-error-boundary": "^3.1.4",
+    "react-fetch": "^0.0.0-experimental-0cc724c77-20211125",
+    "react-server-dom-webpack": "^0.0.0-experimental-0cc724c77-20211125"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0",
+    "@babel/register": "^7.21.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "2.8.4",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.2",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  }
+}
