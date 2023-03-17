@@ -64,8 +64,7 @@ npm install react-error-boundary --force
 ```
 
 ```sh
-touch webpack.config.client.js
-touch webpack.config.server.js
+touch webpack.config.js
 npm install --save-dev html-webpack-plugin
 npm install --save-dev ts-loader
 ```
@@ -86,4 +85,23 @@ touch server/package.json
 ```sh
 npm install express compression
 npm install --save-dev @babel/register
+```
+
+### Create DB
+
+```sh
+npm install react-prisma --force
+npm install --save-dev prisma
+npx prisma init --datasource-provider postgresql
+```
+
+```sh
+touch docker-compose.yml
+touch prisma/seed.js
+```
+
+### Getting started
+
+```sh
+npm install
 ```
