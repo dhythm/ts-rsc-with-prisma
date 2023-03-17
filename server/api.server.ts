@@ -58,7 +58,7 @@ const handleErrors = (fn) => {
 const waitForWebpack = async () => {
   while (true) {
     try {
-      readFileSync(path.resolve(__dirname, "../dist/client/index.html"));
+      readFileSync(path.resolve(__dirname, "../dist/index.html"));
       return;
     } catch (err) {
       console.log(
@@ -72,7 +72,7 @@ const waitForWebpack = async () => {
 const renderReactTree = async (res, props) => {
   await waitForWebpack();
   const manifest = readFileSync(
-    path.resolve(__dirname, "../dist/client/react-client-manifest.json"),
+    path.resolve(__dirname, "../dist/react-client-manifest.json"),
     "utf8"
   );
   const moduleMap = JSON.parse(manifest);
@@ -108,7 +108,7 @@ app.get(
   handleErrors(async (_req, res) => {
     await waitForWebpack();
     const html = readFileSync(
-      path.resolve(__dirname, "../dist/client/index.html"),
+      path.resolve(__dirname, "../dist/index.html"),
       "utf8"
     );
     // Note: this is sending an empty HTML shell, like a client-side-only app.
