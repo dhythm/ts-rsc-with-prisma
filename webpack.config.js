@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
 const rimraf = require("rimraf");
 
@@ -61,21 +62,10 @@ module.exports = {
        *  vm: "vm-browserify",
        *  zlib: "browserify-zlib",
        */
-      async_hooks: false,
-      buffer: "buffer/",
       fs: false,
       module: false,
-      path: false,
-      stream: false,
-      string_decoder: false,
-      querystring: false,
-      "stream-http": false,
-      http: false,
-      url: false,
-      util: false,
       net: false,
-      crypto: false,
-      zlib: false,
+      async_hooks: false,
     },
   },
   output: {
@@ -86,6 +76,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
+    new NodePolyfillPlugin(),
     new ReactServerWebpackPlugin({ isServer: false }),
   ],
 };
