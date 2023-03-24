@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack build --config ./webpack.config.js --mode development",
-    "server:dev": "npm run build:dev && node --conditions react-server dist/server.bundle.js",
+    "server:dev": "tsc && node --conditions react-server dist/server/api.server.js",
     "start": "concurrently -n server,client -c auto \"npm run server:dev\" \"npm run build:dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -54,6 +54,7 @@
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.2",
     "webpack": "^5.76.2",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }

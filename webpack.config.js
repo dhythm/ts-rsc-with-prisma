@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
 const rimraf = require("rimraf");
+const nodeExternals = require("webpack-node-externals");
 
 rimraf.sync(path.resolve(__dirname, "../dist"));
 
@@ -11,6 +12,15 @@ module.exports = {
     client: path.resolve(__dirname, "./src/index.client.tsx"),
     server: path.resolve(__dirname, "./server/api.server.ts"),
   },
+  target: "node",
+  externals: [
+    nodeExternals({
+      modulesFromFile: {
+        exclude: ["dependencies"],
+        include: ["devDependencies"],
+      },
+    }),
+  ],
   devtool: "cheap-module-source-map",
   module: {
     rules: [
@@ -30,6 +40,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
+    modules: ["node_modules"],
     fallback: {
       /**
        * https://github.com/webpack/webpack/blob/49890b77aae455b3204c17fdbed78eeb47bc1d98/lib/ModuleNotFoundError.js#L14-L41
@@ -69,7 +80,7 @@ module.exports = {
     },
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "bundle.[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
